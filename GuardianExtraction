@@ -1,7 +1,5 @@
 library(GuardianR)
 
-apiKey='cf73f1b2-ca94-4c7a-b2e3-d679e4efbebf'
-
 startDate<-'2010-01-01'
 endDate<-'2010-02-01'
 ExtractedArticles<-data.frame()
@@ -13,7 +11,7 @@ for(i in 1:96){
   data=get_guardian('Ireland+economy+brexit+recession+surge',section=NULL,
                     from.date=startDate,
                     to.date=endDate,
-                    api.key='cf73f1b2-ca94-4c7a-b2e3-d679e4efbebf')
+                    api.key='Insert api key')
   ExtractedArticles<-rbind(data,ExtractedArticles)
 }
 length(ExtractedArticles)
