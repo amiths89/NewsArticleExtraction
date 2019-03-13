@@ -1,0 +1,19 @@
+library(GuardianR)
+
+apiKey='cf73f1b2-ca94-4c7a-b2e3-d679e4efbebf'
+
+startDate<-'2010-01-01'
+endDate<-'2010-02-01'
+ExtractedArticles<-data.frame()
+for(i in 1:96){
+  startDate<-as.Date(startDate)
+  endDate<-as.Date(startDate)
+  startDate<-seq(as.Date(startDate), length = 2, by = "+1 months")[2]
+  endDate<-seq(as.Date(endDate), length = 2, by = "+1 months")[2]
+  data=get_guardian('Ireland+economy+brexit+recession+surge',section=NULL,
+                    from.date=startDate,
+                    to.date=endDate,
+                    api.key='cf73f1b2-ca94-4c7a-b2e3-d679e4efbebf')
+  ExtractedArticles<-rbind(data,ExtractedArticles)
+}
+length(ExtractedArticles)
